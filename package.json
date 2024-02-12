@@ -1,4 +1,6 @@
 {
+  "name": "chearful.roblox",
+  "version": "0.1.0",
   "bin": "dist/index.js",
   "main": "dist/index.js",
   "scripts": {
