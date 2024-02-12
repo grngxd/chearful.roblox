@@ -56,18 +56,16 @@ const generate = (length, amount) => {
     return result;
 };
 setTimeout(() => __awaiter(void 0, void 0, void 0, function* () {
+    const unfiltered = generate(parseInt(args[0]), parseInt(args[1]));
+    //console.log(unfiltered);
+    const ids = yield rbx.getIdFromUsername(unfiltered);
+    //console.log(ids);
     const filtered = new Array();
-    while (filtered.length === 0) {
-        const unfiltered = generate(parseInt(args[0]), parseInt(args[1]));
-        //console.log(unfiltered);
-        const ids = yield rbx.getIdFromUsername(unfiltered);
-        //console.log(ids);
-        unfiltered.map((name) => __awaiter(void 0, void 0, void 0, function* () {
-            const id = ids[unfiltered.indexOf(name)];
-            if (id)
-                return;
-            filtered.push(name);
-        }));
-    }
+    unfiltered.map((name) => __awaiter(void 0, void 0, void 0, function* () {
+        const id = ids[unfiltered.indexOf(name)];
+        if (id)
+            return;
+        filtered.push(name);
+    }));
     console.log(filtered);
 }), 5000);
